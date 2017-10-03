@@ -157,33 +157,99 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnDeletePro_Click(object sender, EventArgs e)
         {
-           
+           var CurrentPro = dgrvPro.CurrentRow.Cells["Product1"].Value.ToString();
+            var ID = db.Products.Where(x=>x.Product1 == CurrentPro).SingleOrDefault().ID;
+            lprodt.RemoveAll(x => x.IDProduct == ID);
+            lpro.RemoveAll(x => x.ID == ID);
+            var list = (from item1 in lpro
+                        join item2 in lprodt
+                        on item1.ID equals item2.IDProduct
+                        orderby item1.ID
+                        select new
+                        {
+                            Product1 = item1.Product1,
+                            Quantity = item2.Quantity,
+                            OrdinaryPrice = item1.OrdinaryPrice
+                        }).ToList();
+            dgrvPro.DataSource = null;
+            dgrvPro.AutoGenerateColumns = false;
+
+            dgrvPro.ColumnCount = 3;
+
+            dgrvPro.Columns[0].Name = "Product1";
+            dgrvPro.Columns[0].HeaderText = "Sản phẩm";
+            dgrvPro.Columns[0].DataPropertyName = "Product1";
+
+            dgrvPro.Columns[1].Name = "Quantity";
+            dgrvPro.Columns[1].HeaderText = "Số lượng";
+            dgrvPro.Columns[1].DataPropertyName = "Quantity";
+
+            dgrvPro.Columns[2].Name = "OrdinaryPrice";
+            dgrvPro.Columns[2].HeaderText = "Giá gốc";
+            dgrvPro.Columns[2].DataPropertyName = "OrdinaryPrice";
+
+            dgrvPro.DataSource = list;
+            SumPriceAndQuantity();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             
+            ImportBill entity = new ImportBill();
+            entity.Bill = txtBillName.Text;
+            entity.IDWareHouse =Convert.ToInt32( cbWH.SelectedValue);
+            entity.Date = dateTimePicker.Value;
+            entity.Quantity = Convert.ToInt32(txtQuantity.Text);
+            entity.TotalPrice = Convert.ToInt32(txtMoney.Text);
+            FImportBill im = new FImportBill();
+            var result =im.Insert(entity);
+            foreach(var item in lprodt){
+                item.IDImBill = entity.ID;
+                FProductDetail dt = new FProductDetail();
+                dt.Insert(item); 
+            }
+            if (result == true)
+            {
+                MessageBox.Show("Thêm phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
         private void txtBillName_TextChanged(object sender, EventArgs e)
         {
-           
+           if (txtBillName.Text != "")
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            
+            txtBillName.Text = "";
+            txtMoney.Text = "";
+            txtQuantity.Text = "";
+            dgrvPro.DataSource = null;
         }
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-          
+          if(numeric.Value != 0)
+            {
+                btnAddPro.Enabled = true;
+            }
+            else
+            {
+                btnAddPro.Enabled = false;
+            }
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-           
+           this.Close();
         }
     }
 }
