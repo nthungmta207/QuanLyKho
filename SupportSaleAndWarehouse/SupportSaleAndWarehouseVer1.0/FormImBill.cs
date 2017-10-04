@@ -15,7 +15,9 @@ namespace SupportSaleAndWarehouseVer1._0
     public partial class FormImBill : Form
     {
        
-
+        WareHouseDbContext db = new WareHouseDbContext();
+        List<ProductDetail> lprodt;
+        List<Product> lpro;
         public FormImBill()
         {
             InitializeComponent();
@@ -23,17 +25,29 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void FormImBill_Load(object sender, EventArgs e)
         {
-           
+           Binding_CbWH();
+            Load_CbPro();
+            lprodt = new List<ProductDetail>();
+            lpro = new List<Product>();
+            btnAdd.Enabled = false;
+            btnAddPro.Enabled = false;
         }
 
         private void Binding_CbWH()
         {
-            
+            List<WareHouse> lwh = (from wh in db.WareHouses select wh).ToList();
+            cbWH.DataSource = lwh;
+            cbWH.DisplayMember = "Warehouse";
+            cbWH.ValueMember = "ID";
         }
         private void Load_CbPro()
         {
-            
+            List<Product> list = (from pro in db.Products select pro).ToList();
+            cbPro.DataSource = list;
+            cbPro.DisplayMember = "Product1";
+            cbPro.ValueMember = "ID";
         }
+
 
         private void btnAddPro_Click(object sender, EventArgs e)
         {
