@@ -27,11 +27,21 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void FormEditExBill_Load(object sender, EventArgs e)
         {
-           
+            Binding_CbWH();
+            Load_CbPro();
+            lprodt = new List<ProductDetail>();
+            lpro = new List<Product>();
+            btnEdit.Enabled = false;
+            btnAddPro.Enabled = false;
+            Binding_list();
+            Binding_dgrvPro();
         }
         private void Binding_CbWH()
         {
-            
+            List<WareHouse> lwh = (from wh in db.WareHouses select wh).ToList();
+            cbWH.DataSource = lwh;
+            cbWH.DisplayMember = "Warehouse";
+            cbWH.ValueMember = "ID";
         }
         private void Load_CbPro()
         {
