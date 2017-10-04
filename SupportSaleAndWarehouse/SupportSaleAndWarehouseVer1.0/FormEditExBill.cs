@@ -14,10 +14,15 @@ namespace SupportSaleAndWarehouseVer1._0
 {
     public partial class FormEditExBill : Form
     {
-       
+        WareHouseDbContext db = new WareHouseDbContext();
+        List<ProductDetail> lprodt;
+        List<Product> lpro;
+        public int IDExBill;
         public FormEditExBill(int ID, string Bill)
         {
-            
+            InitializeComponent();
+            IDExBill = ID;
+            txtBillName.Text = Bill;
         }
 
         private void FormEditExBill_Load(object sender, EventArgs e)
