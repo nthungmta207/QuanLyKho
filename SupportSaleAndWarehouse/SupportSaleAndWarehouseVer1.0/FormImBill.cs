@@ -51,7 +51,61 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnAddPro_Click(object sender, EventArgs e)
         {
-            
+            var ite = cbPro.SelectedValue.ToString();
+            var search = lpro.Find(x => x.ID == Convert.ToInt32(ite));
+            if (search == null)
+            {
+                ProductDetail entity = new ProductDetail();
+                entity.Quantity = Convert.ToInt32(numeric.Value.ToString());
+                entity.IDProduct = Convert.ToInt32(cbPro.SelectedValue.ToString());
+
+                var ID = Convert.ToInt32(cbPro.SelectedValue.ToString());
+                lprodt.Add(entity);
+
+                Product pro = db.Products.Where(x => x.ID == ID).SingleOrDefault();
+                lpro.Add(pro);
+            }
+            else
+            {
+                foreach (var dt in lprodt.Where(x=> x.IDProduct == Convert.ToInt32(cbPro.SelectedValue.ToString())))
+                {
+                    dt.Quantity = dt.Quantity + Convert.ToInt32(numeric.Value.ToString());
+                }
+            }
+          
+
+            var list = (from item1 in lpro
+                        join item2 in lprodt
+                        on item1.ID equals item2.IDProduct
+                        orderby item1.ID
+                        select new
+                        {
+                            Product1 = item1.Product1,
+                            Quantity = item2.Quantity,
+                            OrdinaryPrice = item1.OrdinaryPrice
+                        }).ToList();
+
+            dgrvPro.DataSource = null;
+            dgrvPro.AutoGenerateColumns = false;
+
+            dgrvPro.ColumnCount = 3;
+
+            dgrvPro.Columns[0].Name = "Product1";
+            dgrvPro.Columns[0].HeaderText = "Sản phẩm";
+            dgrvPro.Columns[0].DataPropertyName = "Product1";
+
+            dgrvPro.Columns[1].Name = "Quantity";
+            dgrvPro.Columns[1].HeaderText = "Số lượng";
+            dgrvPro.Columns[1].DataPropertyName = "Quantity";
+
+            dgrvPro.Columns[2].Name = "OrdinaryPrice";
+            dgrvPro.Columns[2].HeaderText = "Giá gốc";
+            dgrvPro.Columns[2].DataPropertyName = "OrdinaryPrice";
+
+            dgrvPro.DataSource = list;
+
+
+            //SumPriceAndQuantity();
 
         }
 
