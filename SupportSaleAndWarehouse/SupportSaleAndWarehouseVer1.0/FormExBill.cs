@@ -31,11 +31,18 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void Binding_CbWH()
         {
-          
+            List<WareHouse> lwh = (from wh in db.WareHouses select wh).ToList();
+            cbWH.DataSource = lwh;
+            cbWH.DisplayMember = "Warehouse";
+            cbWH.ValueMember = "ID";
+
         }
         private void Load_CbPro()
         {
-            
+            List<Product> list = (from pro in db.Products select pro).ToList();
+            cbPro.DataSource = list;
+            cbPro.DisplayMember = "Product1";
+            cbPro.ValueMember = "ID";
         }
         private void SumPriceAndQuantity()
         {
