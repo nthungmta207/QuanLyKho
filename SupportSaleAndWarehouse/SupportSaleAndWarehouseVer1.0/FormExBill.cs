@@ -21,7 +21,12 @@ namespace SupportSaleAndWarehouseVer1._0
         }
         private void FormExBill_Load(object sender, EventArgs e)
         {
-            
+            Binding_CbWH();
+            Load_CbPro();
+            lprodt = new List<ProductDetail>();
+            lpro = new List<Product>();
+            btnAdd.Enabled = false;
+            btnAddPro.Enabled = false;
         }
 
         private void Binding_CbWH()
