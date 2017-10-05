@@ -229,5 +229,277 @@ namespace SupportSaleAndWarehouseVer1._0
             fWareHouse.Delete(ID);
             BindingWarehouse();
         }
+        private void btnEditWH_Click(object sender, EventArgs e)
+        {
+            WareHouse entity = new WareHouse();
+            entity.ID = Convert.ToInt32(txtIDWH.Text.ToString());
+            entity.Location = txtLocationWH.Text;
+            entity.Quantity = Convert.ToInt32(txtQuantityWH.Text.ToString());
+            entity.Capacity = Convert.ToInt32(txtCapacityWH.Text.ToString());
+            entity.Warehouse = txtWH.Text;
+            FWareHouse fWareHouse = new FWareHouse();
+            fWareHouse.Update(entity);
+            dgrvWH.Refresh();
+            dgrvWH.DataSource = null;
+            txtIDWH.Enabled = false;
+            List<WareHouse> list = (from wh in db.WareHouses select wh).ToList();
+
+            dgrvWH.AutoGenerateColumns = false;
+
+            dgrvWH.ColumnCount = 5;
+            dgrvWH.Columns[0].Name = "ID";
+            dgrvWH.Columns[0].HeaderText = "ID";
+            dgrvWH.Columns[0].DataPropertyName = "ID";
+
+            dgrvWH.Columns[1].Name = "Warehouse";
+            dgrvWH.Columns[1].HeaderText = "Tên kho";
+            dgrvWH.Columns[1].DataPropertyName = "Warehouse";
+
+
+            dgrvWH.Columns[2].Name = "Location";
+            dgrvWH.Columns[2].HeaderText = "Địa chỉ";
+            dgrvWH.Columns[2].DataPropertyName = "Location";
+
+            dgrvWH.Columns[3].Name = "Quantity";
+            dgrvWH.Columns[3].HeaderText = "Đã chứa";
+            dgrvWH.Columns[3].DataPropertyName = "Quantity";
+
+            dgrvWH.Columns[4].Name = "Capacity";
+            dgrvWH.Columns[4].HeaderText = "Sức chứa";
+            dgrvWH.Columns[4].DataPropertyName = "Capacity";
+            dgrvWH.DataSource = list;
+
+            txtIDWH.Text = dgrvWH.CurrentRow.Cells["ID"].Value.ToString();
+            txtLocationWH.Text = dgrvWH.CurrentRow.Cells["Location"].Value.ToString();
+            txtWH.Text = dgrvWH.CurrentRow.Cells["Warehouse"].Value.ToString();
+            txtCapacityWH.Text = dgrvWH.CurrentRow.Cells["Capacity"].Value.ToString();
+            txtQuantityWH.Text = dgrvWH.CurrentRow.Cells["Quantity"].Value.ToString();
+
+        }
+
+
+        private void txtWH_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWH.Text) | string.IsNullOrWhiteSpace(txtIDWH.Text) | string.IsNullOrWhiteSpace(txtLocationWH.Text) | string.IsNullOrWhiteSpace(txtQuantityWH.Text) | string.IsNullOrWhiteSpace(txtCapacityWH.Text))
+            {
+                btnAddWH.Enabled = false;
+            }
+            else
+            {
+                btnAddWH.Enabled = true;
+            }
+        }
+
+        private void txtIDWH_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWH.Text) | string.IsNullOrWhiteSpace(txtIDWH.Text) | string.IsNullOrWhiteSpace(txtLocationWH.Text) | string.IsNullOrWhiteSpace(txtQuantityWH.Text) | string.IsNullOrWhiteSpace(txtCapacityWH.Text))
+            {
+                btnAddWH.Enabled = false;
+            }
+            else
+            {
+                btnAddWH.Enabled = true;
+            }
+        }
+
+        private void txtLocation_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWH.Text) | string.IsNullOrWhiteSpace(txtIDWH.Text) | string.IsNullOrWhiteSpace(txtLocationWH.Text) | string.IsNullOrWhiteSpace(txtQuantityWH.Text) | string.IsNullOrWhiteSpace(txtCapacityWH.Text))
+            {
+                btnAddWH.Enabled = false;
+            }
+            else
+            {
+                btnAddWH.Enabled = true;
+            }
+        }
+
+        private void txtCapacity_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWH.Text) | string.IsNullOrWhiteSpace(txtIDWH.Text) | string.IsNullOrWhiteSpace(txtLocationWH.Text) | string.IsNullOrWhiteSpace(txtQuantityWH.Text) | string.IsNullOrWhiteSpace(txtCapacityWH.Text))
+            {
+                btnAddWH.Enabled = false;
+            }
+            else
+            {
+                btnAddWH.Enabled = true;
+            }
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWH.Text) | string.IsNullOrWhiteSpace(txtIDWH.Text) | string.IsNullOrWhiteSpace(txtLocationWH.Text) | string.IsNullOrWhiteSpace(txtQuantityWH.Text) | string.IsNullOrWhiteSpace(txtCapacityWH.Text))
+            {
+                btnAddWH.Enabled = false;
+            }
+            else
+            {
+                btnAddWH.Enabled = true;
+            }
+        }
+
+        private void txtCapacity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+        #endregion
+
+
+        private void btnDeleteDTWH_Click(object sender, EventArgs e)
+        {
+            FProductDetail fprodt = new FProductDetail();
+            var IDwh = Convert.ToInt32(dgrvWH.CurrentRow.Cells["ID"].Value.ToString());
+            var IDpro = Convert.ToInt32(dgrvDetailWH.CurrentRow.Cells["ID"].Value.ToString());
+            var IDprodt = (from wh in db.WareHouses.Where(x => x.ID == IDwh).ToList()
+                           from prodt in db.ProductDetails.Where(z => z.IDProduct == IDpro).ToList()
+                           select new
+                           {
+                               ID = prodt.ID
+                           }
+                ).ToList();
+            foreach (var item in IDprodt)
+            {
+                var a = Convert.ToInt32(item.ID.ToString());
+                fprodt.Delete(a);
+            }
+
+            Binding_dgrDetailWH();
+        }
+
+        private void btnAddPro_Click(object sender, EventArgs e)
+        {
+            FormImBill formImBill = new FormImBill();
+            formImBill.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormExBill formImBill = new FormExBill();
+            formImBill.Show();
+        }
+        #endregion
+
+        #region Tab Product
+
+        public void Load_TabProduct()
+        {
+
+            BindingdgrvProduct();
+
+        }
+        public void BindingdgrvProduct()
+        {
+            btnAddProduct.Enabled = false;
+            //btnEditPro.Enabled = false;
+
+            dgrvProduct.Refresh();
+            dgrvProduct.DataSource = null;
+            txtIDPro.Enabled = false;
+            var IDCom = Convert.ToInt32(cbCom.SelectedValue.ToString());
+            List<Product> list = (from pr in db.Products.Where(x => x.IDCompany == IDCom) select pr).ToList();
+
+            dgrvProduct.AutoGenerateColumns = false;
+
+            dgrvProduct.ColumnCount = 5;
+            dgrvProduct.Columns[0].Name = "ID";
+            dgrvProduct.Columns[0].HeaderText = "ID";
+            dgrvProduct.Columns[0].DataPropertyName = "ID";
+
+            dgrvProduct.Columns[1].Name = "Product1";
+            dgrvProduct.Columns[1].HeaderText = "Tên sản phẩm";
+            dgrvProduct.Columns[1].DataPropertyName = "Product1";
+
+
+            dgrvProduct.Columns[2].Name = "Company";
+            dgrvProduct.Columns[2].HeaderText = "Mã công ty";
+            dgrvProduct.Columns[2].DataPropertyName = "IDCompany";
+
+            dgrvProduct.Columns[3].Name = "Price";
+            dgrvProduct.Columns[3].HeaderText = "Giá bán";
+            dgrvProduct.Columns[3].DataPropertyName = "Price";
+
+            dgrvProduct.Columns[4].Name = "OrdinaryPrice";
+            dgrvProduct.Columns[4].HeaderText = "Giá gốc";
+            dgrvProduct.Columns[4].DataPropertyName = "OrdinaryPrice";
+
+            dgrvProduct.DataSource = list;
+            //txtIDPro.Text = dgrvProduct.CurrentRow.Cells["ID"].Value.ToString();
+            //txtPro.Text = dgrvProduct.CurrentRow.Cells["Product1"].Value.ToString();
+            //cbCompany.Text = dgrvProduct.CurrentRow.Cells["Company"].Value.ToString();
+            //txtOrdinaryPrice.Text = dgrvProduct.CurrentRow.Cells["OrdinaryPrice"].Value.ToString();
+            //txtPrice.Text = dgrvProduct.CurrentRow.Cells["Price"].Value.ToString();
+        }
+
+        public void Load_CbCom()
+        {
+            List<Company> list = (from com in db.Companies select com).ToList();
+            cbCom.DataSource = list;
+            cbCom.DisplayMember = "Company1";
+            cbCom.ValueMember = "ID";
+        }
+        public void Load_CbCompany()
+        {
+            List<Company> list = (from com in db.Companies select com).ToList();
+            cbCompany.DataSource = list;
+            cbCompany.DisplayMember = "Company1";
+            cbCompany.ValueMember = "ID";
+        }
+        public void dgrvProduct_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtIDPro.Text = dgrvProduct.CurrentRow.Cells["ID"].Value.ToString();
+            txtPro.Text = dgrvProduct.CurrentRow.Cells["Product1"].Value.ToString();
+            cbCompany.SelectedValue = cbCom.SelectedValue;
+            txtOrdinaryPrice.Text = dgrvProduct.CurrentRow.Cells["OrdinaryPrice"].Value.ToString();
+            txtPrice.Text = dgrvProduct.CurrentRow.Cells["Price"].Value.ToString();
+        }
+        private void cbCom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindingdgrvProduct();
+            txtIDPro.Text = dgrvProduct.CurrentRow.Cells["ID"].Value.ToString();
+            txtPro.Text = dgrvProduct.CurrentRow.Cells["Product1"].Value.ToString();
+            cbCompany.SelectedValue = cbCom.SelectedValue;
+            txtOrdinaryPrice.Text = dgrvProduct.CurrentRow.Cells["OrdinaryPrice"].Value.ToString();
+            txtPrice.Text = dgrvProduct.CurrentRow.Cells["Price"].Value.ToString();
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            Product entity = new Product();
+            entity.ID = Convert.ToInt32(txtIDPro.Text.ToString());
+            entity.Product1 = txtPro.Text;
+            entity.IDCompany = Convert.ToInt32(cbCompany.SelectedValue.ToString());
+            entity.Price = Convert.ToInt32(txtPrice.Text.ToString());
+            entity.OrdinaryPrice = Convert.ToInt32(txtOrdinaryPrice.Text);
+            FProduct fProduct = new FProduct();
+            fProduct.Insert(entity);
+
+            BindingdgrvProduct();
+        }
+
+        private void btnRefreshPro_Click(object sender, EventArgs e)
+        {
+            txtIDPro.Text = "";
+            txtPro.Text = "";
+            txtOrdinaryPrice.Text = "";
+            txtPrice.Text = "";
+        }
     }
 }
