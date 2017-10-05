@@ -15,15 +15,28 @@ namespace SupportSaleAndWarehouseVer1._0
 {
     public partial class FormEditImBill : Form
     {
-        
+
+        WareHouseDbContext db = new WareHouseDbContext();
+        List<ProductDetail> lprodt;
+        List<Product> lpro;
+        public int IDImBill;
         public FormEditImBill(int ID, string Bill)
         {
-           
+            InitializeComponent();
+            IDImBill = ID;
+            txtBillName.Text = Bill;
         }
 
         private void FormEditImBill_Load(object sender, EventArgs e)
         {
-          
+            Binding_CbWH();
+            Load_CbPro();
+            lprodt = new List<ProductDetail>();
+            lpro = new List<Product>();
+            btnEdit.Enabled = false;
+            btnAddPro.Enabled = false;
+            Binding_list();
+            Binding_dgrvPro();
         }
 
 
