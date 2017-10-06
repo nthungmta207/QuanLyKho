@@ -217,22 +217,39 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void txtBillName_TextChanged(object sender, EventArgs e)
         {
-           
+           if (txtBillName.Text != "")
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            
+            txtBillName.Text = "";
+            txtMoney.Text = "";
+            txtQuantity.Text = "";
+            dgrvPro.DataSource = null;
         }
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-          
+          if(numeric.Value != 0)
+            {
+                btnAddPro.Enabled = true;
+            }
+            else
+            {
+                btnAddPro.Enabled = false;
+            }
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-           
+           this.Close();
         }
     }
 }
