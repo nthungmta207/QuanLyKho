@@ -237,7 +237,47 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-           
+            ExportBill entity = new ExportBill();
+            entity.ID = IDExBill;
+            entity.Bill = txtBillName.Text;
+            entity.IDWareHouse = Convert.ToInt32(cbWH.SelectedValue);
+            entity.Date = dateTimePicker.Value;
+            entity.Quantity = Convert.ToInt32(txtQuantity.Text);
+            entity.TotalPrice = Convert.ToInt32(txtMoney.Text);
+            FExportBill Ex = new FExportBill();
+            var result = Ex.Update(entity);
+            var listolder = (from dt in db.ProductDetails.Where(x => x.IDExBill == IDExBill).ToList()
+                             from pr in db.Products.Where(x => x.ID == dt.IDProduct).ToList()
+                             from com in db.Companies.Where(x => x.ID == pr.IDCompany).ToList()
+                             select new
+                             {
+                                 IDProductDetail = dt.ID,
+                                 ID = pr.ID,
+                                 Product1 = pr.Product1,
+                                 Quantity = dt.Quantity,
+                                 OrdinaryPrice = pr.OrdinaryPrice
+                             }
+                           ).ToList();
+            foreach (var item in lprodt)
+            {
+                var search = listolder.Find(x => x.ID == item.IDProduct);
+                if (search == null)
+                {
+                    FProductDetail dt = new FProductDetail();
+
+                    dt.Insert(item);
+                }
+                else
+                {
+                    item.ID = search.IDProductDetail;
+                    FProductDetail dt = new FProductDetail();
+                    dt.Update(item);
+                }
+            }
+            if (result == true)
+            {
+                MessageBox.Show("Sửa phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
