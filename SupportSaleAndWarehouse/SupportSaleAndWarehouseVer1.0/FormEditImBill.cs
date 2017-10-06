@@ -42,17 +42,60 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void Binding_CbWH()
         {
-          
+            List<WareHouse> lwh = (from wh in db.WareHouses select wh).ToList();
+            cbWH.DataSource = lwh;
+            cbWH.DisplayMember = "Warehouse";
+            cbWH.ValueMember = "ID";
         }
         private void Load_CbPro()
         {
-           
+            List<Product> list = (from pro in db.Products select pro).ToList();
+            cbPro.DataSource = list;
+            cbPro.DisplayMember = "Product1";
+            cbPro.ValueMember = "ID";
         }
 
-        
+
         public void Binding_list()
         {
-           
+            var listolder = (from dt in db.ProductDetails.Where(x => x.IDImBill == IDImBill).ToList()
+                             from pr in db.Products.Where(x => x.ID == dt.IDProduct).ToList()
+                             from com in db.Companies.Where(x => x.ID == pr.IDCompany).ToList()
+                             select new
+                             {
+                                 IDProductDetail = dt.ID,
+                                 ID = pr.ID,
+                                 Product1 = pr.Product1,
+                                 Quantity = dt.Quantity,
+                                 OrdinaryPrice = pr.OrdinaryPrice
+                             }
+                           ).ToList();
+            foreach (var item in listolder)
+            {
+                var search1 = lpro.Find(x => x.ID == item.ID);
+                if (search1 == null)
+                {
+                    ProductDetail entity = new ProductDetail();
+                    entity.ID = 1;
+                    entity.IDImBill = IDImBill;
+                    entity.Quantity = item.Quantity;
+                    entity.IDProduct = item.ID;
+
+                    // var ID = Convert.ToInt32(cbPro.SelectedValue.ToString());
+                    lprodt.Add(entity);
+
+                    Product pro = db.Products.Where(x => x.ID == item.ID).SingleOrDefault();
+                    lpro.Add(pro);
+                }
+                else
+                {
+                    foreach (var dt in lprodt.Where(x => x.IDProduct == item.ID))
+                    {
+                        dt.Quantity = dt.Quantity + item.Quantity;
+                    }
+                }
+
+            }
         }
 
         private void SumPriceAndQuantity()
