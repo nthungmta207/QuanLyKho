@@ -154,7 +154,39 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnDeletePro_Click(object sender, EventArgs e)
         {
-            
+            var CurrentPro = dgrvPro.CurrentRow.Cells["Product1"].Value.ToString();
+            var ID = db.Products.Where(x => x.Product1 == CurrentPro).SingleOrDefault().ID;
+            lprodt.RemoveAll(x => x.IDProduct == ID);
+            lpro.RemoveAll(x => x.ID == ID);
+            var list = (from item1 in lpro
+                        join item2 in lprodt
+                        on item1.ID equals item2.IDProduct
+                        orderby item1.ID
+                        select new
+                        {
+                            Product1 = item1.Product1,
+                            Quantity = item2.Quantity,
+                            OrdinaryPrice = item1.OrdinaryPrice
+                        }).ToList();
+            dgrvPro.DataSource = null;
+            dgrvPro.AutoGenerateColumns = false;
+
+            dgrvPro.ColumnCount = 3;
+
+            dgrvPro.Columns[0].Name = "Product1";
+            dgrvPro.Columns[0].HeaderText = "Sản phẩm";
+            dgrvPro.Columns[0].DataPropertyName = "Product1";
+
+            dgrvPro.Columns[1].Name = "Quantity";
+            dgrvPro.Columns[1].HeaderText = "Số lượng";
+            dgrvPro.Columns[1].DataPropertyName = "Quantity";
+
+            dgrvPro.Columns[2].Name = "OrdinaryPrice";
+            dgrvPro.Columns[2].HeaderText = "Giá gốc";
+            dgrvPro.Columns[2].DataPropertyName = "OrdinaryPrice";
+
+            dgrvPro.DataSource = list;
+            SumPriceAndQuantity();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
