@@ -95,7 +95,26 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void SumPriceAndQuantity()
         {
-            
+            var list = (from item1 in lpro
+                        join item2 in lprodt
+                        on item1.ID equals item2.IDProduct
+                        orderby item1.ID
+                        select new
+                        {
+                            Product1 = item1.Product1,
+                            Quantity = item2.Quantity,
+                            OrdinaryPrice = item1.OrdinaryPrice
+                        }).ToList();
+            var listPrice = (from item in list
+                             select new
+                             {
+                                 Money = item.Quantity * item.OrdinaryPrice
+                             }
+                             ).ToList();
+            var sumPrice = listPrice.Sum(x => x.Money);
+            var sumQuantity = list.Sum(x => x.Quantity);
+            txtMoney.Text = sumPrice.ToString();
+            txtQuantity.Text = sumQuantity.ToString();
         }
 
         private void Binding_dgrvPro()
