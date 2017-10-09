@@ -191,17 +191,37 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-          
+            ExportBill entity = new ExportBill();
+            entity.Bill = txtBillName.Text;
+            entity.IDWareHouse = Convert.ToInt32(cbWH.SelectedValue);
+            entity.Date = dateTimePicker.Value;
+            entity.Quantity = Convert.ToInt32(txtQuantity.Text);
+            entity.TotalPrice = Convert.ToInt32(txtMoney.Text);
+            FExportBill Ex = new FExportBill();
+            var result = Ex.Insert(entity);
+            foreach (var item in lprodt)
+            {
+                item.IDExBill = entity.ID;
+                FProductDetail dt = new FProductDetail();
+                dt.Insert(item);
+            }
+            if (result == true)
+            {
+                MessageBox.Show("Thêm phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            
+            txtBillName.Text = "";
+            txtMoney.Text = "";
+            txtQuantity.Text = "";
+            dgrvPro.DataSource = null;
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-           
+            this.Close();
         }
 
         private void txtBillName_TextChanged(object sender, EventArgs e)
