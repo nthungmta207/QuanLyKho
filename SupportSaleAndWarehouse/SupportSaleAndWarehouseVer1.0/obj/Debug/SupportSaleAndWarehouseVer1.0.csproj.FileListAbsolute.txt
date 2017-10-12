@@ -58,3 +58,6 @@ C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj
 C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormImBill.resources
 C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.Properties.Resources.resources
 C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.csproj.GenerateResource.Cache
+C:\Users\diagr\Desktop\New folder\QuanLyKho1\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.exe.config
+C:\Users\diagr\Desktop\New folder\QuanLyKho1\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.exe
+C:\Users\diagr\Desktop\New folder\QuanLyKho1\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.pdb
