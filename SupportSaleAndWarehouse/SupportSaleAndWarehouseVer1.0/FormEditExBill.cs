@@ -51,6 +51,7 @@ namespace SupportSaleAndWarehouseVer1._0
             cbPro.ValueMember = "ID";
         }
 
+
         public void Binding_list()
         {
             var listolder = (from dt in db.ProductDetails.Where(x => x.IDExBill == IDExBill).ToList()
@@ -64,7 +65,7 @@ namespace SupportSaleAndWarehouseVer1._0
                                  Quantity = dt.Quantity,
                                  OrdinaryPrice = pr.OrdinaryPrice
                              }
-                            ).ToList();
+                           ).ToList();
             foreach (var item in listolder)
             {
                 var search1 = lpro.Find(x => x.ID == item.ID);

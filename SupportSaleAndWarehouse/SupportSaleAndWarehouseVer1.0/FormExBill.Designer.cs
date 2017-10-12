@@ -101,7 +101,7 @@
             this.numeric.Name = "numeric";
             this.numeric.Size = new System.Drawing.Size(116, 20);
             this.numeric.TabIndex = 6;
-            this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
+            this.numeric.ValueChanged += new System.EventHandler(this.numeric_ValueChanged_1);
             // 
             // btnAddPro
             // 
@@ -111,7 +111,7 @@
             this.btnAddPro.TabIndex = 0;
             this.btnAddPro.Text = "Thêm";
             this.btnAddPro.UseVisualStyleBackColor = true;
-            this.btnAddPro.Click += new System.EventHandler(this.btnAddPro_Click);
+            this.btnAddPro.Click += new System.EventHandler(this.btnAddPro_Click_1);
             // 
             // btnDeletePro
             // 
@@ -121,7 +121,7 @@
             this.btnDeletePro.TabIndex = 0;
             this.btnDeletePro.Text = "Xóa";
             this.btnDeletePro.UseVisualStyleBackColor = true;
-            this.btnDeletePro.Click += new System.EventHandler(this.btnDeletePro_Click);
+            this.btnDeletePro.Click += new System.EventHandler(this.btnDeletePro_Click_1);
             // 
             // label9
             // 
@@ -161,7 +161,7 @@
             this.txtBillName.Name = "txtBillName";
             this.txtBillName.Size = new System.Drawing.Size(444, 20);
             this.txtBillName.TabIndex = 2;
-            this.txtBillName.TextChanged += new System.EventHandler(this.txtBillName_TextChanged);
+            this.txtBillName.TextChanged += new System.EventHandler(this.txtBillName_TextChanged_1);
             // 
             // cbPro
             // 
@@ -269,7 +269,7 @@
             this.btnCancle.TabIndex = 0;
             this.btnCancle.Text = "Hủy";
             this.btnCancle.UseVisualStyleBackColor = true;
-            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click_1);
             // 
             // btnRefresh
             // 
@@ -279,7 +279,7 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click_1);
             // 
             // btnAdd
             // 
@@ -289,7 +289,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
             // FormExBill
             // 
@@ -300,6 +300,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormExBill";
             this.Text = "Thêm phiếu xuất";
+            this.Load += new System.EventHandler(this.FormExBill_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvPro)).EndInit();

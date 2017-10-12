@@ -76,6 +76,7 @@ namespace SupportSaleAndWarehouseVer1._0
             txtCapacityWH.Text = dgrvWH.CurrentRow.Cells["Capacity"].Value.ToString();
             txtQuantityWH.Text = dgrvWH.CurrentRow.Cells["Quantity"].Value.ToString();
         }
+
         public void Binding_dgrDetailWH()
         {
             dgrvDetailWH.Refresh();
@@ -85,7 +86,7 @@ namespace SupportSaleAndWarehouseVer1._0
 
             lpro = (from wh in db.WareHouses.Where(x => x.ID == ID).ToList()
                     from ib in db.ImportBills.Where(x => x.IDWareHouse == wh.ID).ToList()
-                    from dt in db.ProductDetails.Where(x => x.IDImBill == ib.ID).ToList()
+                    from dt in db.ProductDetails.Where(x => x.IDImBill == ib.ID & x.IDExBill == null).ToList()
                     from pr in db.Products.Where(x => x.ID == dt.IDProduct).ToList()
                     from com in db.Companies.Where(x => x.ID == pr.IDCompany).ToList()
                     select new Product
@@ -111,7 +112,7 @@ namespace SupportSaleAndWarehouseVer1._0
             List<ProductDetail> ldt = new List<ProductDetail>();
             ldt = (from wh in db.WareHouses.Where(x => x.ID == ID).ToList()
                    from ib in db.ImportBills.Where(x => x.IDWareHouse == wh.ID).ToList()
-                   from dt in db.ProductDetails.Where(x => x.IDImBill == ib.ID).ToList()
+                   from dt in db.ProductDetails.Where(x => x.IDImBill == ib.ID & x.IDExBill == null).ToList()
                    from pr in db.Products.Where(x => x.ID == dt.IDProduct).ToList()
                    from com in db.Companies.Where(x => x.ID == pr.IDCompany).ToList()
                    select new ProductDetail
@@ -414,7 +415,7 @@ namespace SupportSaleAndWarehouseVer1._0
             dgrvProduct.DataSource = null;
             txtIDPro.Enabled = false;
             var IDCom = Convert.ToInt32(cbCom.SelectedValue.ToString());
-            List<Product> list = (from pr in db.Products.Where(x => x.IDCompany == IDCom) select pr).ToList();
+            List<Product> list = (from pr in db.Products.Where(x => x.IDCompany ==IDCom) select pr).ToList();
 
             dgrvProduct.AutoGenerateColumns = false;
 
@@ -501,6 +502,7 @@ namespace SupportSaleAndWarehouseVer1._0
             txtOrdinaryPrice.Text = "";
             txtPrice.Text = "";
         }
+
         private void btnEditPro_Click(object sender, EventArgs e)
         {
             Product entity = new Product();
@@ -759,6 +761,7 @@ namespace SupportSaleAndWarehouseVer1._0
             txtQuantityIm.Text = "";
             txtPriceIm.Text = "";
         }
+
         private void btnEditIm_Click(object sender, EventArgs e)
         {
             int ID = Convert.ToInt32(txtIDIm.Text.ToString());
@@ -902,7 +905,7 @@ namespace SupportSaleAndWarehouseVer1._0
             dgrvDTEx.DataSource = list;
         }
 
-
+       
 
         private void dgrvEx_MouseClick(object sender, MouseEventArgs e)
         {
@@ -980,5 +983,6 @@ namespace SupportSaleAndWarehouseVer1._0
             txtPriceEx.Text = dgrvEx.CurrentRow.Cells["TotalPrice"].Value.ToString();
             Binding_dgrvDTEx();
         }
+        #endregion
     }
 }
