@@ -14,7 +14,9 @@ namespace SupportSaleAndWarehouseVer1._0
 {
     public partial class FormExBill : Form
     {
-       
+        WareHouseDbContext db = new WareHouseDbContext();
+        List<ProductDetail> lprodt;
+        List<Product> lpro;
         public FormExBill()
         {
             InitializeComponent();
@@ -35,7 +37,6 @@ namespace SupportSaleAndWarehouseVer1._0
             cbWH.DataSource = lwh;
             cbWH.DisplayMember = "Warehouse";
             cbWH.ValueMember = "ID";
-
         }
         private void Load_CbPro()
         {
@@ -68,32 +69,9 @@ namespace SupportSaleAndWarehouseVer1._0
             txtQuantity.Text = sumQuantity.ToString();
         }
 
-        private void Load_dgrvPro()
-        {
-            dgrvPro.DataSource = null;
-            dgrvPro.AutoGenerateColumns = false;
+       
 
-
-            dgrvPro.ColumnCount = 3;
-
-            dgrvPro.Columns[0].Name = "Product1";
-            dgrvPro.Columns[0].HeaderText = "Sản phẩm";
-            dgrvPro.Columns[0].DataPropertyName = "Product1";
-
-            dgrvPro.Columns[1].Name = "Quantity";
-            dgrvPro.Columns[1].HeaderText = "Số lượng";
-            dgrvPro.Columns[1].DataPropertyName = "Quantity";
-
-            dgrvPro.Columns[2].Name = "OrdinaryPrice";
-            dgrvPro.Columns[2].HeaderText = "Giá gốc";
-            dgrvPro.Columns[2].DataPropertyName = "OrdinaryPrice";
-
-
-            dgrvPro.DataSource = lpro;
-        }
-
-
-        private void btnAddPro_Click(object sender, EventArgs e)
+        private void btnAddPro_Click_1(object sender, EventArgs e)
         {
             var ite = cbPro.SelectedValue.ToString();
             var search = lpro.Find(x => x.ID == Convert.ToInt32(ite));
@@ -152,7 +130,7 @@ namespace SupportSaleAndWarehouseVer1._0
             SumPriceAndQuantity();
         }
 
-        private void btnDeletePro_Click(object sender, EventArgs e)
+        private void btnDeletePro_Click_1(object sender, EventArgs e)
         {
             var CurrentPro = dgrvPro.CurrentRow.Cells["Product1"].Value.ToString();
             var ID = db.Products.Where(x => x.Product1 == CurrentPro).SingleOrDefault().ID;
@@ -189,7 +167,7 @@ namespace SupportSaleAndWarehouseVer1._0
             SumPriceAndQuantity();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             ExportBill entity = new ExportBill();
             entity.Bill = txtBillName.Text;
@@ -211,7 +189,7 @@ namespace SupportSaleAndWarehouseVer1._0
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void btnRefresh_Click_1(object sender, EventArgs e)
         {
             txtBillName.Text = "";
             txtMoney.Text = "";
@@ -219,12 +197,26 @@ namespace SupportSaleAndWarehouseVer1._0
             dgrvPro.DataSource = null;
         }
 
-        private void btnCancle_Click(object sender, EventArgs e)
+        private void btnCancle_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void txtBillName_TextChanged(object sender, EventArgs e)
+        private void numeric_ValueChanged_1(object sender, EventArgs e)
+        {
+           
+
+            if (numeric.Value != 0)
+            {
+                btnAddPro.Enabled = true;
+            }
+            else
+            {
+                btnAddPro.Enabled = false;
+            }
+        }
+
+        private void txtBillName_TextChanged_1(object sender, EventArgs e)
         {
             if (txtBillName.Text != "")
             {
@@ -233,18 +225,6 @@ namespace SupportSaleAndWarehouseVer1._0
             else
             {
                 btnAdd.Enabled = false;
-            }
-        }
-
-        private void numeric_ValueChanged(object sender, EventArgs e)
-        {
-            if (numeric.Value != 0)
-            {
-                btnAddPro.Enabled = true;
-            }
-            else
-            {
-                btnAddPro.Enabled = false;
             }
         }
     }

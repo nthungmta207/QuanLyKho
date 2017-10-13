@@ -29,32 +29,34 @@ C:\Users\ONION\Documents\Visual Studio 2015\Projects\SupportSaleAndWarehouse\Sup
 C:\Users\ONION\Documents\Visual Studio 2015\Projects\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormRegister.resources
 C:\Users\ONION\Documents\Visual Studio 2015\Projects\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormEditImBill.resources
 C:\Users\ONION\Documents\Visual Studio 2015\Projects\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormEditExBill.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.exe.config
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.exe
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.pdb
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.exe
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.pdb
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\Microsoft.SqlServer.Types.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.xml
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.csprojResolveAssemblyReference.cache
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormEditExBill.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormEditImBill.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormExBill.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormMain.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormImBill.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.Properties.Resources.resources
-C:\Users\ONION\Desktop\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.csproj.GenerateResource.Cache
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.exe.config
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.exe
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.pdb
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.exe
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\SupportSaleAndWarehouseVer1.0.pdb
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.xml
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.csprojResolveAssemblyReference.cache
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormEditExBill.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormEditImBill.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormExBill.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormLogin.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormMain.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormImBill.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.FormRegister.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1._0.Properties.Resources.resources
+C:\Users\ONION\Desktop\The Hung\SupportSaleAndWarehouse\SupportSaleAndWarehouseVer1.0\obj\Debug\SupportSaleAndWarehouseVer1.0.csproj.GenerateResource.Cache

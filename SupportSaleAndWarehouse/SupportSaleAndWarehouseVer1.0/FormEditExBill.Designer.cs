@@ -299,7 +299,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormEditExBill";
-            this.Text = "Sửa phiếu thu";
+            this.Text = "Sửa phiếu xuất";
             this.Load += new System.EventHandler(this.FormEditExBill_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

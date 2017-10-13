@@ -14,10 +14,10 @@ namespace SupportSaleAndWarehouseVer1._0
 {
     public partial class FormImBill : Form
     {
-       
         WareHouseDbContext db = new WareHouseDbContext();
         List<ProductDetail> lprodt;
         List<Product> lpro;
+
         public FormImBill()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void FormImBill_Load(object sender, EventArgs e)
         {
-           Binding_CbWH();
+            Binding_CbWH();
             Load_CbPro();
             lprodt = new List<ProductDetail>();
             lpro = new List<Product>();
@@ -47,7 +47,6 @@ namespace SupportSaleAndWarehouseVer1._0
             cbPro.DisplayMember = "Product1";
             cbPro.ValueMember = "ID";
         }
-
 
         private void btnAddPro_Click(object sender, EventArgs e)
         {
@@ -131,33 +130,12 @@ namespace SupportSaleAndWarehouseVer1._0
             txtMoney.Text = sumPrice.ToString();
             txtQuantity.Text = sumQuantity.ToString();
         }
-        private void Load_dgrvPro()
-        {
-            dgrvPro.DataSource = null;
-            dgrvPro.AutoGenerateColumns = false;
 
-
-            dgrvPro.ColumnCount = 3;
-
-            dgrvPro.Columns[0].Name = "Product1";
-            dgrvPro.Columns[0].HeaderText = "Sản phẩm";
-            dgrvPro.Columns[0].DataPropertyName = "Product1";
-
-            dgrvPro.Columns[1].Name = "Quantity";
-            dgrvPro.Columns[1].HeaderText = "Số lượng";
-            dgrvPro.Columns[1].DataPropertyName = "Quantity";
-
-            dgrvPro.Columns[2].Name = "OrdinaryPrice";
-            dgrvPro.Columns[2].HeaderText = "Giá gốc";
-            dgrvPro.Columns[2].DataPropertyName = "OrdinaryPrice";
-
-
-            dgrvPro.DataSource = lpro;
-        }
+       
 
         private void btnDeletePro_Click(object sender, EventArgs e)
         {
-           var CurrentPro = dgrvPro.CurrentRow.Cells["Product1"].Value.ToString();
+            var CurrentPro = dgrvPro.CurrentRow.Cells["Product1"].Value.ToString();
             var ID = db.Products.Where(x=>x.Product1 == CurrentPro).SingleOrDefault().ID;
             lprodt.RemoveAll(x => x.IDProduct == ID);
             lpro.RemoveAll(x => x.ID == ID);
@@ -194,7 +172,6 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
             ImportBill entity = new ImportBill();
             entity.Bill = txtBillName.Text;
             entity.IDWareHouse =Convert.ToInt32( cbWH.SelectedValue);
@@ -217,7 +194,7 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void txtBillName_TextChanged(object sender, EventArgs e)
         {
-           if (txtBillName.Text != "")
+            if (txtBillName.Text != "")
             {
                 btnAdd.Enabled = true;
             }
@@ -237,7 +214,7 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void numeric_ValueChanged(object sender, EventArgs e)
         {
-          if(numeric.Value != 0)
+            if(numeric.Value != 0)
             {
                 btnAddPro.Enabled = true;
             }
@@ -249,7 +226,7 @@ namespace SupportSaleAndWarehouseVer1._0
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-           this.Close();
+            this.Close();
         }
     }
 }
